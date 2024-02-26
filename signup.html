@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 50%;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        input[type="text"], input[type="email"], input[type="password"], input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Sign Up</h2>
+        <form action="Home.html" target="_blank" onsubmit="return validate()">
+            <label for="username">Username</label>
+            <input type="text" id="name" name="username" placeholder="Name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="mail" name="email" placeholder="Email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="pass" name="password" placeholder="Password" required>
+
+            <label for="confirm_password">Confirm Password</label>
+            <input type="password" id="conpass" name="confirm_password" placeholder="Confirmation Password" required>
+
+            <input type="submit" value="Sign Up">
+        </form>
+        <h2 style="text-align: center; color: black;" id="show"></h2>
+<script type="text/javascript">
+    const uname = document.querySelector("#name");
+    const mail = document.querySelector("#mail");
+    const pass = document.querySelector("#pass");
+    const cpass = document.querySelector("#conpass");
+
+    function validate() {
+        if (uname.value == "" || uname.value == null) {
+            var n = document.querySelector("#show");
+            n.innerText = "Username is Required";
+            return false;
+        } else if (mail.value == "" || mail.value == null) {
+            var n = document.querySelector("#show");
+            n.innerText = "Email is Required";
+            return false;
+        } else if (pass.value.length < 8) {
+            var n = document.querySelector("#show");
+            n.innerText = "Password Should Be Minimum 8 Characters";
+            return false;
+        } else if (cpass.value != pass.value) {
+            var n = document.querySelector("#show");
+            n.innerText = "Password didn't match";
+            return false;
+        }
+        return true; // If all validations pass, return true to submit the form
+    }
+</script>
+    </div>
+</body>
+</html>
